@@ -1,0 +1,17 @@
+SPDX-License-Identifier: CC-BY-SA-4.0 OR BSD-2-Clause
+actions:
+- get-integer: null
+- define: null
+build-type: option
+copyrights:
+- Copyright (C) 2026 Gedare Bloom
+default:
+- enabled-by: true
+  value: 0
+description: |
+  TODO
+enabled-by: riscv
+format: '{}'
+links: []
+name: RISCV_MMU_VIRTUAL_ADDRESS_BITS
+type: build

@@ -33,6 +33,8 @@ links:
 - role: build-dependency
   uid: obj
 - role: build-dependency
+  uid: objmmu
+- role: build-dependency
   uid: objsmp
 - role: build-dependency
   uid: ../objsbi
