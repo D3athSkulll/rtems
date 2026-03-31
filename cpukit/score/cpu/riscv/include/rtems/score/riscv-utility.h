@@ -35,4 +35,10 @@
 
 #include "encoding.h"
 
+#if __riscv_xlen == 64
+#define SATP_MODE_SHIFT (60)
+#else
+#define SATP_MODE_SHIFT (31)
+#endif
+
 #endif

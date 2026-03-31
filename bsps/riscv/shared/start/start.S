@@ -114,6 +114,10 @@ SYM(_start):
 .Lafter_fdt_copy:
 #endif
 
+#ifdef RISCV_USE_S_MODE
+	call riscv_mmu_setup
+#endif
+
 #if defined(RTEMS_SMP)
 	/* Give go to secondary processors */
 	LADDR	t0, .Lsecondary_processor_go
