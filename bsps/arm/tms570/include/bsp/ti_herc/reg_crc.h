@@ -51,7 +51,7 @@
 
 #include <bsp/utility.h>
 
-typedef struct{
+typedef struct {
   uint32_t CTRL0;             /*CRC Global Control Register*/
   uint8_t reserved1 [4];
   uint32_t CTRL1;             /*CRC Global Control Register 1*/
@@ -151,7 +151,7 @@ typedef struct{
 /* field: CH1_UNDERENS - Channel 1 Underrun Interrupt Enable Bit. */
 #define TMS570_CRC_INTS_CH1_UNDERENS BSP_BIT32(3)
 
-/* field: CH1_OVERENS - CH1_OVERENS Channel 1 Overrun Interrupt Enable Bit. */
+/* field: CH1_OVERENS - Channel 1 Overrun Interrupt Enable Bit. */
 #define TMS570_CRC_INTS_CH1_OVERENS BSP_BIT32(2)
 
 /* field: CH1_CRCFAILENS - Channel 1 CRC Fail Interrupt Enable Bit. */
@@ -180,10 +180,10 @@ typedef struct{
 /* field: CH1_TIMEOUTENR - Channel 1 Timeout Interrupt Enable Bit. */
 #define TMS570_CRC_INTR_CH1_TIMEOUTENR BSP_BIT32(4)
 
-/* field: CH1_UNDERENR - interrupt. Writing a zero has no effect. */
+/* field: CH1_UNDERENR - Channel 1 Underrun Interrupt Enable Bit. */
 #define TMS570_CRC_INTR_CH1_UNDERENR BSP_BIT32(3)
 
-/* field: CH1_OVERENR - CH1_OVERENR */
+/* field: CH1_OVERENR - Channel 1 Overrun Interrupt Enable Bit. */
 #define TMS570_CRC_INTR_CH1_OVERENR BSP_BIT32(2)
 
 /* field: CH1_CRCFAILENR - Channel 1 CRC Fail Interrupt Enable Bit. */
@@ -209,16 +209,16 @@ typedef struct{
 /* field: CH2_CCIT - Channel 2 CRC Pattern Compression Complete Status Flag. */
 #define TMS570_CRC_STATUS_CH2_CCIT BSP_BIT32(8)
 
-/* field: CH1_TIMEOUT - Writing a zero has no effect. Reading from this bit gives the status (interrupt enable/disable). */
+/* field: CH1_TIMEOUT - Channel 1 CRC Timeout Status Flag. This bit is cleared by writing a '1' to it only. */
 #define TMS570_CRC_STATUS_CH1_TIMEOUT BSP_BIT32(4)
 
-/* field: CH1_UNDER - Channel 1 Underrun Interrupt Enable Bit. */
+/* field: CH1_UNDER - Channel 1 CRC Underrun Status Flag. This bit is cleared by writing a '1' to it only. */
 #define TMS570_CRC_STATUS_CH1_UNDER BSP_BIT32(3)
 
-/* field: CH1_OVER - Channel 1 Overrun Interrupt Enable Bit. Writing a one to this bit disable the overrun interrupt. */
+/* field: CH1_OVER - Channel 1 CRC Overrun Status Flag. This bit is cleared by writing a '1' to it only. */
 #define TMS570_CRC_STATUS_CH1_OVER BSP_BIT32(2)
 
-/* field: CH1_CRCFAIL - Channel 1 CRC Fail Interrupt Enable Bit. */
+/* field: CH1_CRCFAIL - Channel 1 CRC Compare Fail Status Flag. This bit is cleared by writing a '1' to it only. */
 #define TMS570_CRC_STATUS_CH1_CRCFAIL BSP_BIT32(1)
 
 /* field: CH1_CCIT - Channel 1 CRC Pattern Compression Complete Status Flag. */
@@ -233,10 +233,10 @@ typedef struct{
 
 
 /*----------------------TMS570_CRC_BUSY----------------------*/
-/* field: CH2_BUSY - CH2_BUSY. */
+/* field: CH2_BUSY - Channel 2 Busy Flag. */
 #define TMS570_CRC_BUSY_CH2_BUSY BSP_BIT32(8)
 
-/* field: CH1_BUSY - CH1_BUSY. */
+/* field: CH1_BUSY - Channel 1 Busy Flag. */
 #define TMS570_CRC_BUSY_CH1_BUSY BSP_BIT32(0)
 
 
@@ -262,7 +262,7 @@ typedef struct{
 
 
 /*--------------------TMS570_CRC_WDTOPLD1--------------------*/
-/* field: CRC_WDTOPLD1 - CRC_WDTOPLD1 */
+/* field: CRC_WDTOPLD1 - Channel 1 Watchdog Timeout Counter Preload Register. */
 #define TMS570_CRC_WDTOPLD1_CRC_WDTOPLD1(val) BSP_FLD32(val,0, 23)
 #define TMS570_CRC_WDTOPLD1_CRC_WDTOPLD1_GET(reg) BSP_FLD32GET(reg,0, 23)
 #define TMS570_CRC_WDTOPLD1_CRC_WDTOPLD1_SET(reg,val) BSP_FLD32SET(reg, val,0, 23)
@@ -280,7 +280,7 @@ typedef struct{
 /* Whole 32 bits */
 
 /*------------------TMS570_CRC_PSA_SIGREGH1------------------*/
-/* field: PSASIG1 - register. */
+/* field: PSASIG1 - Channel 1 PSA Signature High Register. */
 /* Whole 32 bits */
 
 /*----------------------TMS570_CRC_REGL1----------------------*/
@@ -288,7 +288,7 @@ typedef struct{
 /* Whole 32 bits */
 
 /*----------------------TMS570_CRC_REGH1----------------------*/
-/* field: CRC1 - Channel 1 CRC Value Low Register. */
+/* field: CRC1 - Channel 1 CRC Value High Register. */
 /* Whole 32 bits */
 
 /*-----------------TMS570_CRC_PSA_SECSIGREGL1-----------------*/
@@ -300,7 +300,7 @@ typedef struct{
 /* Whole 32 bits */
 
 /*------------------TMS570_CRC_RAW_DATAREGL1------------------*/
-/* field: RAW_DATA1 - hannel 1 Raw Data Low Register.This register contains bits 31:0 of the uncompressed raw data. */
+/* field: RAW_DATA1 - Channel 1 Raw Data Low Register. This register contains bits 31:0 of the uncompressed raw data. */
 /* Whole 32 bits */
 
 /*------------------TMS570_CRC_RAW_DATAREGH1------------------*/
@@ -351,7 +351,7 @@ typedef struct{
 /* Whole 32 bits */
 
 /*----------------------TMS570_CRC_REGL2----------------------*/
-/* field: CRC2 - stored at CRC2[31:0] register. */
+/* field: CRC2 - Channel 2 CRC Value Low Register. */
 /* Whole 32 bits */
 
 /*----------------------TMS570_CRC_REGH2----------------------*/
@@ -367,21 +367,21 @@ typedef struct{
 /* Whole 32 bits */
 
 /*------------------TMS570_CRC_RAW_DATAREGL2------------------*/
-/* field: RAW_DATA2 - Channel 2 Raw Data Low Register. This register contains bits 31:0 of the uncompressed raw data.. */
+/* field: RAW_DATA2 - Channel 2 Raw Data Low Register. This register contains bits 31:0 of the uncompressed raw data. */
 /* Whole 32 bits */
 
 /*------------------TMS570_CRC_RAW_DATAREGH2------------------*/
-/* field: RAW_DATA2 - Channel 2 Raw Data High Register. This register contains bits 63:32 of the uncompressed raw data.. */
+/* field: RAW_DATA2 - Channel 2 Raw Data High Register. This register contains bits 63:32 of the uncompressed raw data. */
 /* Whole 32 bits */
 
 /*---------------------TMS570_CRC_BUS_SEL---------------------*/
-/* field: MEn - Enable/disables the tracing of Peripheral Bus Master */
+/* field: MEn - Enables/disables the tracing of Peripheral Bus Master */
 #define TMS570_CRC_BUS_SEL_MEn BSP_BIT32(2)
 
-/* field: DTCMEn - Enable/disables the tracing of data TCM */
+/* field: DTCMEn - Enables/disables the tracing of data TCM */
 #define TMS570_CRC_BUS_SEL_DTCMEn BSP_BIT32(1)
 
-/* field: ITCMEn - Enable/disables the tracing of instruction TCM */
+/* field: ITCMEn - Enables/disables the tracing of instruction TCM */
 #define TMS570_CRC_BUS_SEL_ITCMEn BSP_BIT32(0)
 
 
