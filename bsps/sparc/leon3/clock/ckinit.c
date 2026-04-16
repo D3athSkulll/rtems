@@ -57,7 +57,7 @@
 #ifndef RTEMS_DRVMGR_STARTUP
 
 /* LEON3 Timer system interrupt number */
-static int clkirq;
+static rtems_vector_number clkirq;
 
 #if defined(RTEMS_PROFILING) && \
   (defined(LEON3_HAS_ASR_22_23_UP_COUNTER) || \
@@ -118,7 +118,7 @@ static void leon3_tc_tick_irqmp_timestamp_init(void)
   uint32_t ks = 1U << 5;
   uint32_t control = grlib_load_32(&irqmp_ts->itstmpc);
 
-  control = ks | IRQMP_TIMESTAMP_S1_S2 | (unsigned int) clkirq;
+  control = ks | IRQMP_TIMESTAMP_S1_S2 | clkirq;
   grlib_store_32(&irqmp_ts->itstmpc, control);
 
   if (done) {

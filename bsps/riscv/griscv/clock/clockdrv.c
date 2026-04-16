@@ -62,7 +62,7 @@ volatile uint32_t _RISCV_Counter_register;
 #ifndef RTEMS_DRVMGR_STARTUP
 
 /* GRLIB Timer system interrupt number */
-static int clkirq;
+static rtems_vector_number clkirq;
 
 static void (*grlib_tc_tick)(void);
 
@@ -108,7 +108,7 @@ static void grlib_tc_tick_irqmp_timestamp_init(void)
     &GRLIB_IrqCtrl_Regs->timestamp[0];
   unsigned int ks = 1U << 5;
 
-  irqmp_ts->control = ks | IRQMP_TIMESTAMP_S1_S2 | (unsigned int) clkirq;
+  irqmp_ts->control = ks | IRQMP_TIMESTAMP_S1_S2 | clkirq;
 
   if (done) {
     grlib_tc_tick = grlib_tc_tick_irqmp_timestamp;
