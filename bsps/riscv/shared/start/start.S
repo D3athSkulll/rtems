@@ -108,7 +108,7 @@ SYM(_start):
 	 * level passed to sbi_hsm_hart_start.
 	 */
 	li	t0, 3
-	ble	s1, t0, .Lafter_fdt_copy
+	bleu	s1, t0, .Lafter_fdt_copy
 	mv	a0, s1
 	call	bsp_fdt_copy
 .Lafter_fdt_copy:
