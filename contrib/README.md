@@ -60,3 +60,4 @@ Git log in order to find out version and update details
 | cpukit/xz-embedded                    | https://github.com/tukaani-project/xz-embedded                 |
 | cpukit/jffs2                          | https://github.com/torvalds/linux                              |
 | cpukit/posix-newlib                   | https://sourceware.org/newlib/                                 |
+| cpukit/riscv-opcodes                  | https://github.com/riscv/riscv-opcodes                         |
